@@ -1,10 +1,11 @@
 <?php
 session_start();
-error_reporting(1);
+// error_reporting(1);
 require('../component/dbconect.php');
 
 
 if (isset($_SESSION['login'])) {
+
 
     $user_id = $_SESSION['id'];
     $error = [];
@@ -61,7 +62,6 @@ if (isset($_SESSION['login'])) {
 
 <head>
     <?php require('../component/meta.php') ?>
-
 </head>
 
 
@@ -98,6 +98,8 @@ if (isset($_SESSION['login'])) {
 
                     <div class="green_btn" id="green_btn1">
                         <i class="fas fa-plus"></i>
+
+
                     </div>
                 </div>
             </form>
@@ -127,8 +129,8 @@ if (isset($_SESSION['login'])) {
                 input.name = `todo${input_c}`;
 
                 let delete_b = document.createElement('i');
-                delete_b.classList.add('far');
-                delete_b.classList.add('fa-trash-alt');
+                delete_b.classList.add('fa-solid');
+                delete_b.classList.add('fa-trash');
                 delete_b.id = `todo${input_c}`;
 
                 let list_item = document.createElement('div');
@@ -169,8 +171,8 @@ if (isset($_SESSION['login'])) {
                     input.name = `todo${input_c}`;
 
                     let delete_b = document.createElement('i');
-                    delete_b.classList.add('far');
-                    delete_b.classList.add('fa-trash-alt');
+                    delete_b.classList.add('fa-solid');
+                    delete_b.classList.add('fa-trash');
                     delete_b.id = `todo${input_c}`;
 
                     let list_item = document.createElement('div');
