@@ -97,9 +97,8 @@ if (isset($_SESSION['login'])) {
                     </button>
 
                     <div class="green_btn" id="green_btn1">
-                        <i class="fas fa-plus"></i>
-
-
+                        <i class="fa-solid fa-plus"></i>
+                        <!-- <i class="fas fa-hand-pointer"></i> -->
                     </div>
                 </div>
             </form>
@@ -119,41 +118,46 @@ if (isset($_SESSION['login'])) {
             })
 
             green_btn2.addEventListener('click', () => {
-
-                input_c++;
-                //入力した値を受け取る
                 let content = document.getElementById('content');
-                //入力した値をinputとして生成
-                let input = document.createElement('input');
+
+                if (content.value != "") {
+                    
+                    input_c++;
+                    //入力した値を受け取る
+                    //入力した値をinputとして生成
+                    let input = document.createElement('input');
                 input.value = content.value;
                 input.name = `todo${input_c}`;
-
+                
                 let delete_b = document.createElement('i');
                 delete_b.classList.add('fa-solid');
                 delete_b.classList.add('fa-trash');
                 delete_b.id = `todo${input_c}`;
-
+                
                 let list_item = document.createElement('div');
-
+                
                 // input.readOnly = true;
-
+                
                 //アペンドチャイルド
                 list.appendChild(list_item);
                 list_item.appendChild(delete_b);
                 list_item.appendChild(input);
-
+                
                 formal_input.style.transform = "translateY(" + -1000 + "px)";
-
+                
                 content.value = '';
-
-                console.log(delete_b);
-
+                
+                
                 delete_b.addEventListener('click', (e) => {
                     let id = e.target.id
                     let delete_input = document.getElementsByName(id);
 
-                    delete_input.remove();
+                    console.log(e.target.parentNode);
+                    
+                    
+                    e.target.parentNode.remove();
                 })
+            } 
 
             })
 
